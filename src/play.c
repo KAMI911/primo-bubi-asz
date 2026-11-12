@@ -91,6 +91,7 @@ static card_t want(const Table *t, uint8_t s, uint8_t k) {
    again whenever a card changes. */
 static void upd_ai_cards(const Table *t, uint8_t s) {
     uint8_t k, x = (uint8_t)(SEAT_W4 * (s - 1)), same = 1;
+    const uint8_t step = t->game == PG_OMAHA ? AI_STEP4_OMAHA : AI_STEP4;
     card_t w[NHOLE];
     for (k = 0; k < NHOLE; k++) {
         w[k] = want(t, s, k);
@@ -101,7 +102,7 @@ static void upd_ai_cards(const Table *t, uint8_t s) {
     for (k = 0; k < NHOLE; k++) {
         if (w[k] == CODE_NONE) continue;
         draw_code(x, Y_AICARD, w[k]);
-        x = (uint8_t)(x + AI_STEP4);
+        x = (uint8_t)(x + step);
     }
     for (k = 0; k < NHOLE; k++) shown[s][k] = w[k];
 }

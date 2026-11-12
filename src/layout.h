@@ -90,13 +90,17 @@
 #define Y_MENU    174           /* the action bar: F / C / R fields in three slots */
 #define Y_STAT    184
 #define SEAT_W4   22            /* an opponent's column is 88 px wide */
-#define AI_STEP4  5             /* card pitch of an opponent's hand, in 4-pixel units: 3 (12 px) showed little of each card, 5 shows 8 pixels more; at most (SEAT_W4 - 6) / 3 = 5 so that four cards fit */
+#define AI_STEP4  5             /* card pitch of an opponent's hand in Texas Hold'em (2 cards), in 4-pixel units: 3 (12 px) showed little of each card, 5 shows 8 pixels more */
+#define AI_STEP4_OMAHA 4        /* the same for Omaha (4 cards): tighter, so the four cards sit well inside the 22 unit column; at least 3 */
 #define ME_X4     2
 #define ME_STEP4  8             /* card pitch of the player's hand: 32 px, so card k starts at byte column 1 + 4k */
 #define BOARD_X4  13
 #define BOARD_STEP4 8
-#if 3 * AI_STEP4 + 6 > SEAT_W4
-#error "AI_STEP4 is too wide: four cards must fit in an opponent column"
+#if 3 * AI_STEP4_OMAHA + 6 > SEAT_W4
+#error "AI_STEP4_OMAHA is too wide: four cards must fit in an opponent column"
+#endif
+#if 1 * AI_STEP4 + 6 > SEAT_W4
+#error "AI_STEP4 is too wide: two cards must fit in an opponent column"
 #endif
 #define MENU_X0   0             /* the action bar's byte columns; the widths (8, 12, 12) belong to the cached fields in play.c */
 #define MENU_X1   8
