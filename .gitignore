@@ -1,0 +1,10 @@
+build/
+*.o
+__pycache__/
+.ticks_history.txt
+
+# scratch files
+/8
+/first
+/*.log
+.ticks_history.txt
