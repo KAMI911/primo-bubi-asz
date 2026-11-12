@@ -36,8 +36,4 @@ make bench       # a rajzolók ciklusszáma (T-state) az emulált Z80-on
 make test        # mind a fenti teszt
 make             # a négy szalag + wav, memóriahatárokkal
 ```
-## Ellenőrzött / nem ellenőrzött
-Ellenőrzött: kézértékelés, mellékpotok, a zseton megmarad minden leosztás után mindkét játékban, a gép nyer a mindent megadó játékos ellen, a motor és a teljes program (felület is) Z80-emulátoron, a veremhasználat (legrosszabb eset 359 bájt, a színes szalagokon legalább 5559 bájt hely), szalagfelépítés és memóriahatár. Egy leosztás gépi gondolkodási ideje Z80-on ≈ 0,3–1,5 s (becsült, 2,5 MHz).
 A Beállításokban színes Primón az asztal színe is állítható (zöld, bordó, fekete).
-
-**Nem futott valódi Primón vagy Primo-emulátorban** (a Z80-emulátoros teszt nem Primo: nincs ROM, megszakítás, valódi billentyűzet és képernyő-hardver). A színes megjelenést csak host-on, képernyőképen néztem.
